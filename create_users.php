@@ -13,10 +13,10 @@ end_kv - конечный номер квартиры в подъезде
 cctv_id - id из форпоста, по нему ищется подъезд-дом-улица-город
 street и house - переменные, которые фигурируют только в логине
 */
-$admin_login="NDK";
-$admin_password="ClaRi46sforpost";
+$admin_login="LOGIN";
+$admin_password="PASSWORD";
 
-$dbl=new mysqli('localhost','root','roodpass','cctv');
+$dbl=new mysqli('localhost','USER','PASSWORD','BD_NAME');
 
 for ($i=$start_kv; $i<=$end_kv; $i++) {
         if (strlen($i)==1) $kv='000'.$i;
@@ -43,7 +43,7 @@ for ($i=$start_kv; $i<=$end_kv; $i++) {
                 'Password' => $password,
                 'IsReadOnly' => '1'
                 );
-        $ch = curl_init('https://videoserver.tcenter.ru/system-api/AddUser');
+        $ch = curl_init('https://ADDRESS_FORPOST_WEB/system-api/AddUser');
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $array);
 
